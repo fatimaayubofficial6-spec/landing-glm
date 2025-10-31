@@ -164,9 +164,10 @@ window.addEventListener('scroll', function() {
     const heroContent = document.querySelector('.hero-content');
     const heroFloating = document.querySelector('.hero-floating');
     
-    if (hero && heroContent && heroFloating) {
-        heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
-        heroFloating.style.transform = `translateY(${scrolled * 0.5}px)`;
+    if (hero && heroContent && heroFloating && scrolled < window.innerHeight) {
+        // Reduce parallax intensity for better alignment
+        heroContent.style.transform = `translateY(${scrolled * 0.2}px)`;
+        heroFloating.style.transform = `translateY(${scrolled * 0.3}px)`;
     }
 });
 
